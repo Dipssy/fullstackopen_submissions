@@ -8,8 +8,8 @@ participant server
 browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
 activate server
 server-->>browser: Status Code: 302 Found
-Note left of server: Server signals the browser to refresh
 deactivate server
+Note left of server: Server signals the browser to refresh
 
 browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
 activate server
