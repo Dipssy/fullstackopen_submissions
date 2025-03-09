@@ -6,7 +6,21 @@ const App = () => {
 	const [neutral, setNeutral] = useState(0);
 	const [bad, setBad] = useState(0);
 
-	return <div>code here</div>;
+	return (
+		<div>
+			<h1>give feedback</h1>
+			<button>good</button>
+			<button>neutral</button>
+			<button>bad</button>
+			<h1>statistics</h1>
+			<p>good 6</p>
+			<p>neutral 2</p>
+			<p>bad 1</p>
+			<p>all 9</p>
+			<p>average 0.5555555556</p>
+			<p>positive 0.66666666667%</p>
+		</div>
+	);
 };
 
 export default App;
