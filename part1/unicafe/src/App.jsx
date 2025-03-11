@@ -1,5 +1,11 @@
 import { useState } from "react";
 
+/**
+ * statistics component renders a table displaying user feedback statistics.
+ * if no feedback has been given (allClicks === 0), it displays a message instead.
+ *
+ * if I were using the ternary operator in the App component, I'd remove the if statement and just return the table
+ */
 const Statistics = (props) => {
 	const average = (props.good - props.bad) / props.allClicks;
 	const positive = (props.good / props.allClicks) * 100;
@@ -37,24 +43,14 @@ const Statistics = (props) => {
 		);
 	}
 	return "No feedback given";
-
-	// just use this if using ternary operator
-	// return (
-	// 	<div>
-	// 		<p>good 6</p>
-	// 		<p>neutral 2</p>
-	// 		<p>bad 1</p>
-	// 		<p>all 9</p>
-	// 		<p>average 0.5555555556</p>
-	// 		<p>positive 0.66666666667%</p>
-	// 	</div>
-	// );
 };
 
+// button component for recording feedback
 const Button = (props) => {
 	return <button onClick={props.handleClick}>{props.text}</button>;
 };
 
+// renders a single row of statistics in in the table
 const StatisticsLine = (props) => {
 	return (
 		<tr>
@@ -64,6 +60,10 @@ const StatisticsLine = (props) => {
 	);
 };
 
+/**
+ * main App component that collects and displays feedback
+ * users can click a button to add feedback
+ */
 const App = () => {
 	// save clicks of each button to its own state
 	const [good, setGood] = useState(0);
@@ -102,10 +102,21 @@ const App = () => {
 				handleClick={incrementBad}
 			/>
 			<h1>statistics</h1>
-			{
-				// could use ternary operator for conditional rendering
-				// {allClicks > 0 ? <Statistics /> : "No feedback given"}
-			}
+			{/**
+			 * a ternary operator could be used for conditional rendering:
+			 *
+			 * {allClicks > 0 ? (
+			 * 	<Statistics
+			 * 	good={good}
+			 * 	neutral={neutral}
+			 * 	bad={bad}
+			 * 	allClicks={allClicks}
+			 * 	/>
+			 * ) : (
+			 * 	<p>No feedback given</p>
+			 * )}
+			 */}
+
 			<Statistics
 				good={good}
 				neutral={neutral}

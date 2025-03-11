@@ -2,6 +2,7 @@ import Header from "./Header";
 import Content from "./Content";
 import Total from "./Total";
 
+// main App component that displays the number of exercises in parts of a course, along with a total
 const App = () => {
 	const course = {
 		name: "Half Stack application development",

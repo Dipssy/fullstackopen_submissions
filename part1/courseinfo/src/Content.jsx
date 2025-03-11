@@ -1,3 +1,4 @@
+// Part component that renders the name and number of exercises of one part
 const Part = (props) => {
 	return (
 		<p>
@@ -6,6 +7,7 @@ const Part = (props) => {
 	);
 };
 
+// renders all the Parts of the course object in the App component
 const Content = (props) => {
 	return (
 		<div>

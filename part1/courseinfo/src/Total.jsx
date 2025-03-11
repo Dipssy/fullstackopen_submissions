@@ -1,3 +1,4 @@
+// renders the total number of exercises in the course object inside the App component
 const Total = (props) => {
 	return (
 		<p>
