@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NextButton from "./NextButton";
+import VoteButton from "./VoteButton";
 
 // main App component that displays anecdotes, with a button that selects an anecdote at random
 const App = () => {
@@ -15,6 +16,16 @@ const App = () => {
 	];
 
 	const [selected, setSelected] = useState(0);
+	const [votes, setVotes] = useState({
+		0: 0,
+		1: 0,
+		2: 0,
+		3: 0,
+		4: 0,
+		5: 0,
+		6: 0,
+		7: 0,
+	});
 
 	const selectRandom = () => {
 		const numOfAnecdotes = anecdotes.length;
@@ -23,9 +34,24 @@ const App = () => {
 		return setSelected(randomNum);
 	};
 
+	const addVote = () => {
+		const currentAnecdote = selected;
+		const newVotes = {
+			...votes,
+			[currentAnecdote]: votes[currentAnecdote] + 1,
+		};
+
+		setVotes(newVotes);
+	};
+
 	return (
 		<div>
 			<p>{anecdotes[selected]}</p>
+			<p>{`has ${votes[selected]} votes`}</p>
+			<VoteButton
+				text="vote"
+				handleClick={addVote}
+			/>
 			<NextButton
 				text="next anecdote"
 				handleClick={selectRandom}
