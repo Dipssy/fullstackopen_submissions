@@ -6,32 +6,34 @@ const Statistics = (props) => {
 
 	if (props.allClicks > 0) {
 		return (
-			<div>
-				<StatisticsLine
-					text="good"
-					value={props.good}
-				/>
-				<StatisticsLine
-					text="neutral"
-					value={props.neutral}
-				/>
-				<StatisticsLine
-					text="bad"
-					value={props.bad}
-				/>
-				<StatisticsLine
-					text="all"
-					value={props.allClicks}
-				/>
-				<StatisticsLine
-					text="average"
-					value={average}
-				/>
-				<StatisticsLine
-					text="positive"
-					value={`${positive}%`}
-				/>
-			</div>
+			<table>
+				<tbody>
+					<StatisticsLine
+						text="good"
+						value={props.good}
+					/>
+					<StatisticsLine
+						text="neutral"
+						value={props.neutral}
+					/>
+					<StatisticsLine
+						text="bad"
+						value={props.bad}
+					/>
+					<StatisticsLine
+						text="all"
+						value={props.allClicks}
+					/>
+					<StatisticsLine
+						text="average"
+						value={average}
+					/>
+					<StatisticsLine
+						text="positive"
+						value={`${positive}%`}
+					/>
+				</tbody>
+			</table>
 		);
 	}
 	return "No feedback given";
@@ -55,9 +57,10 @@ const Button = (props) => {
 
 const StatisticsLine = (props) => {
 	return (
-		<p>
-			{props.text} {props.value}
-		</p>
+		<tr>
+			<td>{props.text}</td>
+			<td>{props.value}</td>
+		</tr>
 	);
 };
 
